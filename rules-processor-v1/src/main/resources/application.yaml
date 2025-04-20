@@ -1,0 +1,15 @@
+server:
+  port: ${SERVER_PORT:8019}
+
+spring:
+  application:
+    name: rules-processor-v1
+
+configuration:
+  error-messages:
+    Default: No hemos podido realizar tu operación. Estamos trabajando para solucionar el inconveniente.
+
+  rules:
+    directory: rules/
+    strategies:
+      DiscountRule: discount_rules.drl
