@@ -1,4 +1,4 @@
-package rule_table;
+package rules;
 //generated from Decision Table
 import com.demo.poc.entrypoint.rules.strategies.discount.rule.DiscountRule;
 import java.util.Arrays;

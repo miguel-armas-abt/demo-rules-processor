@@ -106,6 +106,12 @@
       <version>3.11</version>
     </dependency>
 
+    <dependency><!-- logs -->
+      <groupId>com.newrelic.logging</groupId>
+      <artifactId>logback</artifactId>
+      <version>2.6.0</version>
+    </dependency>
+
     <dependency><!-- drools -->
       <groupId>org.kie</groupId>
       <artifactId>kie-spring</artifactId>
