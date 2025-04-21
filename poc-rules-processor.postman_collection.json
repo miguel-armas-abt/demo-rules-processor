@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "f8429fa9-90bf-4c2e-a240-ee48b08364f1",
+		"name": "poc-rules-processor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33527392"
+	},
+	"item": [
+		{
+			"name": "Discounts",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "timestamp",
+						"value": "{{$isoTimestamp}}",
+						"type": "text"
+					},
+					{
+						"key": "trace-id",
+						"value": "{{$guid}}",
+						"type": "text"
+					},
+					{
+						"key": "channel-id",
+						"value": "APP",
+						"type": "text"
+					},
+					{
+						"key": "strategy",
+						"value": "DiscountRule",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"quantity\": 2,\r\n    \"productCode\": \"MENU0003\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8019/poc/business/rules-processor/v1/execute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8019",
+					"path": [
+						"poc",
+						"business",
+						"rules-processor",
+						"v1",
+						"execute"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
