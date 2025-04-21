@@ -1,6 +1,7 @@
 package com.demo.poc.commons.core.restclient;
 
 import com.demo.poc.commons.core.errors.exceptions.EmptyBaseUrlException;
+import com.demo.poc.commons.core.properties.restclient.RestClient;
 import com.demo.poc.commons.core.restclient.enums.TimeoutLevel;
 import com.demo.poc.commons.core.serialization.JacksonFactory;
 import com.demo.poc.commons.custom.properties.ApplicationProperties;
@@ -22,9 +23,11 @@ public class RetrofitFactory {
                              String serviceName,
                              Class<T> RepositoryClass) {
 
+    RestClient restClient = properties.searchRestClient(serviceName);
+
     Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
-        .client(createOkHttpClient(okHttpClient, properties.searchPerformance(serviceName).getTimeout()))
-        .baseUrl(Optional.ofNullable(properties.searchEndpoint(serviceName)).orElseThrow(EmptyBaseUrlException::new));
+        .client(createOkHttpClient(okHttpClient, restClient.getPerformance().getTimeout()))
+        .baseUrl(Optional.ofNullable(restClient.getRequest().getEndpoint()).orElseThrow(EmptyBaseUrlException::new));
 
     retrofitBuilder
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
