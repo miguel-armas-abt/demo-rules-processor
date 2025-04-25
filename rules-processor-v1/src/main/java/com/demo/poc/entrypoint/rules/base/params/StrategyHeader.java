@@ -1,4 +1,4 @@
-package com.demo.poc.entrypoint.rules.base.dto.params;
+package com.demo.poc.entrypoint.rules.base.params;
 
 import com.demo.poc.commons.core.validations.headers.DefaultHeaders;
 import jakarta.validation.constraints.NotEmpty;

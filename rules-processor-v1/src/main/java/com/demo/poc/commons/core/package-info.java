@@ -1,12 +1,12 @@
 /**
- * <h1>Core Library</h1>
+ * <h1>Core Library - Basic</h1>
  *
- * <p>This package contains the core config classes for: </p>
+ * <p>This package contains the core config classes for RxJava.</p>
+ *
+ * @version 1.1
  * <ul>
- *   <li>RxJava</li>
- *   <li>Type: Basic</li>
+ *   <li>Last updated: 25/04</>
+ *   <li>Refactor of param mappers.</>
  * </ul>
- *
- * @version 1.0
  */
 package com.demo.poc.commons.core;
