@@ -15,5 +15,4 @@ public enum LoggingType {
 
   private final String code;
   private final String message;
-
 }
