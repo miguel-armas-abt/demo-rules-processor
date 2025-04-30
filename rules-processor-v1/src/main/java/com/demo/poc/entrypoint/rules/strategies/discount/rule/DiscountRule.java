@@ -2,7 +2,7 @@ package com.demo.poc.entrypoint.rules.strategies.discount.rule;
 
 import static org.apache.commons.lang3.ObjectUtils.isNotEmpty;
 
-import com.demo.poc.entrypoint.rules.base.rule.Rule;
+import com.demo.poc.entrypoint.rules.rule.Rule;
 import java.io.Serializable;
 import java.util.List;
 import lombok.Builder;

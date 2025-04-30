@@ -1,0 +1,363 @@
+package rules;
+//generated from Decision Table
+import com.demo.poc.entrypoint.rules.strategies.limits.rule.TransactionalLimitRule;
+// rule values at A11, header at A6
+rule "R01"
+/* true */
+	salience 65535
+	when
+		$rule:TransactionalLimitRule(currentLevel == "01")
+	then
+		$rule.dispatch("01",false,true,true);
+end
+
+// rule values at A12, header at A6
+rule "R02"
+/* true */
+	salience 65534
+	when
+		$rule:TransactionalLimitRule(currentLevel == "01")
+	then
+		$rule.dispatch("02",true,false,true);
+end
+
+// rule values at A13, header at A6
+rule "R03"
+/* true */
+	salience 65533
+	when
+		$rule:TransactionalLimitRule(currentLevel == "01")
+	then
+		$rule.dispatch("03",true,false,true);
+end
+
+// rule values at A14, header at A6
+rule "R04"
+/* true */
+	salience 65532
+	when
+		$rule:TransactionalLimitRule(currentLevel == "01")
+	then
+		$rule.dispatch("04",true,false,true);
+end
+
+// rule values at A15, header at A6
+rule "R05"
+/* false */
+	salience 65531
+	when
+		$rule:TransactionalLimitRule(currentLevel == "01")
+	then
+		$rule.dispatch("05",true,false,false);
+end
+
+// rule values at A16, header at A6
+rule "R06"
+/* true */
+	salience 65530
+	when
+		$rule:TransactionalLimitRule(currentLevel == "01")
+	then
+		$rule.dispatch("06",true,false,true);
+end
+
+// rule values at A17, header at A6
+rule "R07"
+/* true */
+	salience 65529
+	when
+		$rule:TransactionalLimitRule(currentLevel == "02")
+	then
+		$rule.dispatch("01",false,true,true);
+end
+
+// rule values at A18, header at A6
+rule "R08"
+/* true */
+	salience 65528
+	when
+		$rule:TransactionalLimitRule(currentLevel == "02")
+	then
+		$rule.dispatch("02",false,true,true);
+end
+
+// rule values at A19, header at A6
+rule "R09"
+/* true */
+	salience 65527
+	when
+		$rule:TransactionalLimitRule(currentLevel == "02")
+	then
+		$rule.dispatch("03",true,false,true);
+end
+
+// rule values at A20, header at A6
+rule "R10"
+/* true */
+	salience 65526
+	when
+		$rule:TransactionalLimitRule(currentLevel == "02")
+	then
+		$rule.dispatch("04",true,false,true);
+end
+
+// rule values at A21, header at A6
+rule "R11"
+/* false */
+	salience 65525
+	when
+		$rule:TransactionalLimitRule(currentLevel == "02")
+	then
+		$rule.dispatch("05",true,false,false);
+end
+
+// rule values at A22, header at A6
+rule "R12"
+/* true */
+	salience 65524
+	when
+		$rule:TransactionalLimitRule(currentLevel == "02")
+	then
+		$rule.dispatch("06",true,false,true);
+end
+
+// rule values at A23, header at A6
+rule "R13"
+/* true */
+	salience 65523
+	when
+		$rule:TransactionalLimitRule(currentLevel == "03")
+	then
+		$rule.dispatch("01",false,true,true);
+end
+
+// rule values at A24, header at A6
+rule "R14"
+/* true */
+	salience 65522
+	when
+		$rule:TransactionalLimitRule(currentLevel == "03")
+	then
+		$rule.dispatch("02",false,true,true);
+end
+
+// rule values at A25, header at A6
+rule "R15"
+/* true */
+	salience 65521
+	when
+		$rule:TransactionalLimitRule(currentLevel == "03")
+	then
+		$rule.dispatch("03",false,true,true);
+end
+
+// rule values at A26, header at A6
+rule "R16"
+/* true */
+	salience 65520
+	when
+		$rule:TransactionalLimitRule(currentLevel == "03")
+	then
+		$rule.dispatch("04",true,false,true);
+end
+
+// rule values at A27, header at A6
+rule "R17"
+/* false */
+	salience 65519
+	when
+		$rule:TransactionalLimitRule(currentLevel == "03")
+	then
+		$rule.dispatch("05",true,false,false);
+end
+
+// rule values at A28, header at A6
+rule "R18"
+/* true */
+	salience 65518
+	when
+		$rule:TransactionalLimitRule(currentLevel == "03")
+	then
+		$rule.dispatch("06",true,false,true);
+end
+
+// rule values at A29, header at A6
+rule "R19"
+/* true */
+	salience 65517
+	when
+		$rule:TransactionalLimitRule(currentLevel == "04")
+	then
+		$rule.dispatch("01",false,true,true);
+end
+
+// rule values at A30, header at A6
+rule "R20"
+/* true */
+	salience 65516
+	when
+		$rule:TransactionalLimitRule(currentLevel == "04")
+	then
+		$rule.dispatch("02",false,true,true);
+end
+
+// rule values at A31, header at A6
+rule "R21"
+/* true */
+	salience 65515
+	when
+		$rule:TransactionalLimitRule(currentLevel == "04")
+	then
+		$rule.dispatch("03",false,true,true);
+end
+
+// rule values at A32, header at A6
+rule "R22"
+/* true */
+	salience 65514
+	when
+		$rule:TransactionalLimitRule(currentLevel == "04")
+	then
+		$rule.dispatch("04",false,true,true);
+end
+
+// rule values at A33, header at A6
+rule "R23"
+/* false */
+	salience 65513
+	when
+		$rule:TransactionalLimitRule(currentLevel == "04")
+	then
+		$rule.dispatch("05",true,false,false);
+end
+
+// rule values at A34, header at A6
+rule "R24"
+/* true */
+	salience 65512
+	when
+		$rule:TransactionalLimitRule(currentLevel == "04")
+	then
+		$rule.dispatch("06",true,false,true);
+end
+
+// rule values at A35, header at A6
+rule "R25"
+/* true */
+	salience 65511
+	when
+		$rule:TransactionalLimitRule(currentLevel == "05")
+	then
+		$rule.dispatch("01",false,true,true);
+end
+
+// rule values at A36, header at A6
+rule "R26"
+/* true */
+	salience 65510
+	when
+		$rule:TransactionalLimitRule(currentLevel == "05")
+	then
+		$rule.dispatch("02",false,true,true);
+end
+
+// rule values at A37, header at A6
+rule "R27"
+/* true */
+	salience 65509
+	when
+		$rule:TransactionalLimitRule(currentLevel == "05")
+	then
+		$rule.dispatch("03",false,true,true);
+end
+
+// rule values at A38, header at A6
+rule "R28"
+/* true */
+	salience 65508
+	when
+		$rule:TransactionalLimitRule(currentLevel == "05")
+	then
+		$rule.dispatch("04",false,true,true);
+end
+
+// rule values at A39, header at A6
+rule "R29"
+/* true */
+	salience 65507
+	when
+		$rule:TransactionalLimitRule(currentLevel == "05")
+	then
+		$rule.dispatch("05",false,true,true);
+end
+
+// rule values at A40, header at A6
+rule "R30"
+/* true */
+	salience 65506
+	when
+		$rule:TransactionalLimitRule(currentLevel == "05")
+	then
+		$rule.dispatch("06",true,false,true);
+end
+
+// rule values at A41, header at A6
+rule "R31"
+/* true */
+	salience 65505
+	when
+		$rule:TransactionalLimitRule(currentLevel == "06")
+	then
+		$rule.dispatch("01",false,true,true);
+end
+
+// rule values at A42, header at A6
+rule "R32"
+/* true */
+	salience 65504
+	when
+		$rule:TransactionalLimitRule(currentLevel == "06")
+	then
+		$rule.dispatch("02",false,true,true);
+end
+
+// rule values at A43, header at A6
+rule "R33"
+/* true */
+	salience 65503
+	when
+		$rule:TransactionalLimitRule(currentLevel == "06")
+	then
+		$rule.dispatch("03",false,true,true);
+end
+
+// rule values at A44, header at A6
+rule "R34"
+/* true */
+	salience 65502
+	when
+		$rule:TransactionalLimitRule(currentLevel == "06")
+	then
+		$rule.dispatch("04",false,true,true);
+end
+
+// rule values at A45, header at A6
+rule "R35"
+/* false */
+	salience 65501
+	when
+		$rule:TransactionalLimitRule(currentLevel == "06")
+	then
+		$rule.dispatch("05",false,true,false);
+end
+
+// rule values at A46, header at A6
+rule "R36"
+/* true */
+	salience 65500
+	when
+		$rule:TransactionalLimitRule(currentLevel == "06")
+	then
+		$rule.dispatch("06",false,true,true);
+end
+

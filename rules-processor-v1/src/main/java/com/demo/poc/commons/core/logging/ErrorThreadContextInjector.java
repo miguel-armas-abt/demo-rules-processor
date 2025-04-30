@@ -1,7 +1,5 @@
 package com.demo.poc.commons.core.logging;
 
-import java.util.Map;
-
 import com.demo.poc.commons.core.tracing.enums.TraceParam;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,11 +13,10 @@ public class ErrorThreadContextInjector {
 
   private final ThreadContextInjector injector;
 
-  public void populateFromException(Throwable ex, WebRequest request) {
+  public void populateFromException(Throwable ex,  WebRequest webRequest) {
     ThreadContext.clearAll();
-    String traceParent = request.getHeader(TraceParam.TRACE_PARENT.getKey().toLowerCase());
-    Map<String, String> traceHeaders = TraceParam.Util.getTraceHeadersAsMap(traceParent);
-    injector.populateFromHeaders(traceHeaders);
+    String traceParent = webRequest.getHeader(TraceParam.TRACE_PARENT.getKey());
+    injector.populateFromHeaders(TraceParam.Util.getTraceHeadersAsMap(traceParent));
     log.error(ex.getMessage(), ex);
   }
 }

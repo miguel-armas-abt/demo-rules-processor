@@ -19,8 +19,9 @@ public class GenericException extends RuntimeException {
         super(message);
         this.httpStatus = detail.getHttpStatus();
         this.errorDetail = ErrorDto.builder()
-            .code(detail.getCode())
-            .message(detail.getMessage())
-            .build();
+                .type(detail.getType())
+                .code(detail.getCode())
+                .message(detail.getMessage())
+                .build();
     }
 }

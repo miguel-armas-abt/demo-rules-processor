@@ -1,7 +1,7 @@
 package com.demo.poc.entrypoint.rules.strategies.discount.mapper;
 
-import com.demo.poc.entrypoint.rules.base.rule.Rule;
-import com.demo.poc.entrypoint.rules.base.mapper.RuleMapper;
+import com.demo.poc.entrypoint.rules.rule.Rule;
+import com.demo.poc.entrypoint.rules.mapper.RuleMapper;
 import com.demo.poc.entrypoint.rules.strategies.discount.dto.DiscountRuleRequestDto;
 import com.demo.poc.entrypoint.rules.strategies.discount.dto.DiscountRuleResponseDto;
 import com.demo.poc.entrypoint.rules.strategies.discount.rule.DiscountRule;

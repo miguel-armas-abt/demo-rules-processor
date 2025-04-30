@@ -1,10 +1,10 @@
 package com.demo.poc.commons.core.interceptor.error;
 
-import static com.demo.poc.commons.custom.exceptions.ErrorDictionary.INVALID_FIELD;
-
 import com.demo.poc.commons.core.errors.dto.ErrorDto;
 import com.demo.poc.commons.core.errors.exceptions.GenericException;
+import com.demo.poc.commons.core.errors.selector.ResponseErrorSelector;
 import com.demo.poc.commons.core.logging.ErrorThreadContextInjector;
+import com.demo.poc.commons.core.logging.enums.LoggingType;
 import com.demo.poc.commons.custom.properties.ApplicationProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.MissingRequestHeaderException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.ResourceAccessException;
@@ -21,15 +20,15 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.net.ConnectException;
-import java.util.stream.Collectors;
 
 @Slf4j
 @RestControllerAdvice
 @RequiredArgsConstructor
 public class ErrorInterceptor extends ResponseEntityExceptionHandler {
 
+  private final ErrorThreadContextInjector contextInjector;
   private final ApplicationProperties properties;
-  private final ErrorThreadContextInjector errorContext;
+  private final ResponseErrorSelector responseErrorSelector;
 
   @ExceptionHandler({Throwable.class})
   public ResponseEntity<ErrorDto> handleException(Throwable ex, WebRequest request) {
@@ -42,8 +41,8 @@ public class ErrorInterceptor extends ResponseEntityExceptionHandler {
       httpStatus = HttpStatus.REQUEST_TIMEOUT;
     }
 
-    if(ex instanceof GenericException genericException) {
-      error = genericException.getErrorDetail();
+    if (ex instanceof GenericException genericException) {
+      error = responseErrorSelector.toErrorDTO(genericException);
       httpStatus = genericException.getHttpStatus();
     }
 
@@ -55,34 +54,13 @@ public class ErrorInterceptor extends ResponseEntityExceptionHandler {
   protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers,
                                                                 HttpStatusCode status, WebRequest request) {
     generateTrace(ex, request);
-
-    String errorMessage = ex.getBindingResult()
-        .getFieldErrors()
-        .stream()
-        .map(error -> error.getField() + ": " + error.getDefaultMessage())
-        .collect(Collectors.joining(";"));
-
-    ErrorDto error = ErrorDto.builder()
-        .code(INVALID_FIELD.getCode())
-        .message(errorMessage)
-        .build();
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
-  @ExceptionHandler(MissingRequestHeaderException.class)
-  public ResponseEntity<ErrorDto> handleMissingRequestHeader(MissingRequestHeaderException exception, WebRequest request) {
-    generateTrace(exception, request);
-
-    String message = exception.getBody().getDetail();
-    ErrorDto error = ErrorDto.builder()
-        .code(INVALID_FIELD.getCode())
-        .message(message)
-        .build();
-
+    ErrorDto error = responseErrorSelector.toErrorDTO(ex);
     return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
   }
 
   private void generateTrace(Throwable ex, WebRequest request) {
-    errorContext.populateFromException(ex, request);
+    if (properties.isLoggerPresent(LoggingType.ERROR)) {
+      contextInjector.populateFromException(ex, request);
+    }
   }
 }

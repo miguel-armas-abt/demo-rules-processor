@@ -4,7 +4,6 @@ import com.demo.poc.commons.core.errors.exceptions.EmptyBaseUrlException;
 import com.demo.poc.commons.core.properties.restclient.RestClient;
 import com.demo.poc.commons.core.restclient.enums.TimeoutLevel;
 import com.demo.poc.commons.core.serialization.JacksonFactory;
-import com.demo.poc.commons.custom.properties.ApplicationProperties;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import okhttp3.OkHttpClient;
@@ -19,11 +18,8 @@ import java.util.Optional;
 public class RetrofitFactory {
 
   public static <T> T create(OkHttpClient.Builder okHttpClient,
-                             ApplicationProperties properties,
-                             String serviceName,
+                             RestClient restClient,
                              Class<T> RepositoryClass) {
-
-    RestClient restClient = properties.searchRestClient(serviceName);
 
     Retrofit.Builder retrofitBuilder = new Retrofit.Builder()
         .client(createOkHttpClient(okHttpClient, restClient.getPerformance().getTimeout()))
