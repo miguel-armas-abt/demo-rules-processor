@@ -2,7 +2,7 @@ package com.demo.poc.entrypoint.rules.strategies.limits.enums;
 
 import java.util.Arrays;
 
-import com.demo.poc.commons.custom.exceptions.NoSuchTransferLimitException;
+import com.demo.poc.entrypoint.rules.exceptions.NoSuchTransferLimitException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 

@@ -1,7 +1,7 @@
 package com.demo.poc.entrypoint.rules.processor;
 
-import com.demo.poc.commons.custom.exceptions.RulesCompilationException;
-import com.demo.poc.commons.custom.properties.ApplicationProperties;
+import com.demo.poc.entrypoint.rules.exceptions.RulesCompilationException;
+import com.demo.poc.commons.properties.ApplicationProperties;
 import com.demo.poc.entrypoint.rules.rule.Rule;
 import lombok.RequiredArgsConstructor;
 import org.kie.api.KieServices;

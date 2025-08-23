@@ -14,7 +14,7 @@ public class StrategyHeaderMapper implements ParamMapper {
   @Override
   public Object map(Map<String, String> params) {
     StrategyHeader headers = new StrategyHeader();
-    headers.setTraceId(params.get(TraceParam.TRACE_PARENT.getKey()));
+    headers.setTraceParent(params.get(TraceParam.TRACE_PARENT.getKey()));
     headers.setChannelId(params.get(ForwardedParam.CHANNEL_ID.getKey()));
     headers.setStrategy(params.get("strategy"));
     return headers;

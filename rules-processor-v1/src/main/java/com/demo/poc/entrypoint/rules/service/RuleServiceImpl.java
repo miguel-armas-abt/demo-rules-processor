@@ -1,6 +1,6 @@
 package com.demo.poc.entrypoint.rules.service;
 
-import com.demo.poc.commons.custom.exceptions.NoSuchRuleMapperException;
+import com.demo.poc.entrypoint.rules.exceptions.NoSuchRuleMapperException;
 import com.demo.poc.entrypoint.rules.processor.RuleProcessor;
 import com.demo.poc.entrypoint.rules.mapper.RuleMapper;
 import com.demo.poc.entrypoint.rules.rule.Rule;
