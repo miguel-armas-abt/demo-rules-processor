@@ -1,6 +1,6 @@
 package rules;
 //generated from Decision Table
-import com.demo.poc.entrypoint.rules.strategies.limits.rule.TransactionalLimitRule;
+import com.demo.service.entrypoint.rules.strategies.limits.rule.TransactionalLimitRule;
 // rule values at A11, header at A6
 rule "R01"
 /* true */
