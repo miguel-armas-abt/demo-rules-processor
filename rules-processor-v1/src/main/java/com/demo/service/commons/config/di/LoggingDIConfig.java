@@ -18,5 +18,4 @@ public class LoggingDIConfig {
   public ErrorThreadContextInjector errorThreadContextInjector(ThreadContextInjector contextInjector) {
     return new ErrorThreadContextInjector(contextInjector);
   }
-
 }

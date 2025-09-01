@@ -13,8 +13,8 @@ import org.springframework.context.annotation.Configuration;
 public class ErrorDIConfig {
 
   @Bean
-  public DefaultErrorExtractor defaultErrorExtractor(RestClientErrorMapper mapper) {
-    return new DefaultErrorExtractor(mapper);
+  public DefaultErrorExtractor defaultErrorExtractor(RestClientErrorMapper errorMapper) {
+    return new DefaultErrorExtractor(errorMapper);
   }
 
   @Bean

@@ -5,7 +5,7 @@
 
   <parent>
     <groupId>com.demo.commons</groupId>
-    <artifactId>commons-rxjava-parent</artifactId>
+    <artifactId>commons-spring-boot-parent</artifactId>
     <version>1.0.0</version>
     <relativePath/>
   </parent>
@@ -23,7 +23,7 @@
   <dependencies>
     <dependency>
       <groupId>com.demo.commons</groupId>
-      <artifactId>commons-rxjava</artifactId>
+      <artifactId>commons-spring-boot</artifactId>
       <version>1.0.0</version>
     </dependency>
 
